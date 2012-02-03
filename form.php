@@ -33,7 +33,7 @@ class form {
   }
     
     
-  function add($field_type,$db_column,$label,$default_value,$required=false,$error='',$add_text,$options) {
+  function add($field_type,$db_column,$label,$default_value,$required=false,$error='',$add_text='',$options='') {
     $this->fields[$this->field_id] = array('type'=>$field_type,'column'=>$db_column,'label'=>$label,'value'=>$default_value,'required'=>$required,'error_msg'=>$error,'add_text'=>$add_text,'options'=>$options);
     if($required) { $this->required[] = $this->field_id; }
     $this->field_id++;
@@ -59,7 +59,7 @@ class form {
     $request_array = 'int_get_'.strtolower($method);
     $this->request_variables = $this->$request_array();
     
-    if(count($this->request_variables) == 0 || !$this->int_validate()) {
+    if(count($this->request_variables) == 0 || !$this->int_validate($method)) {
        $this->int_build($action,$method,$enctype,$name,$id);
     } else {
         $this->int_send();
