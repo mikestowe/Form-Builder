@@ -16,7 +16,7 @@ require_once('form.php');
 $form = new form;
 
 //            SEND FORM TO               SUBJECT
-$form->email('mikes@ecreativeworks.com','Form Test');
+$form->email('email@emailaddress.com','Form Test');
 
 //  FIELD TYPE   DB COLUMN   LABEL     DEFAULT VALUE  REQUIRED  REQUIRED MESSAGE    ADD TEXT     OPTIONS (ARRAY)
 $form->content('<h2 style="margin-bottom: 0px;">Welcome to My Form</h2><span style="font-family: arial; font-size: 12px; color: #666;">8 Fields, 2 content blocks... 14 lines of code<br /></span>');
