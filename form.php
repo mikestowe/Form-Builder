@@ -19,17 +19,20 @@ class form {
   
   function database($table) {
      $this->table = $table;
+     return $this;
   }
   
   
   function email($to,$subject) {
       $this->email = $to;
       $this->subject = $subject;
+      return $this;
   }
   
   
   function success($message) {
       $this->thankyou = $message;
+      return $this;
   }
     
     
@@ -37,6 +40,8 @@ class form {
     $this->fields[$this->field_id] = array('type'=>$field_type,'column'=>$db_column,'label'=>$label,'value'=>$default_value,'required'=>$required,'error_msg'=>$error,'add_text'=>$add_text,'options'=>$options);
     if($required) { $this->required[] = $this->field_id; }
     $this->field_id++;
+    
+    return $this;
   }
   
   
@@ -44,12 +49,16 @@ class form {
     $this->fields[$this->field_id] = $array;
     if($array['required']) { $this->required[] = $this->field_id; }
     $this->field_id++;
+    
+    return $this;
   }
   
   
   function content($content) {
     $this->fields[$this->field_id] = array('type'=>'content','value'=>$content);
     $this->field_id++;
+    
+    return $this;
   }
   
   
